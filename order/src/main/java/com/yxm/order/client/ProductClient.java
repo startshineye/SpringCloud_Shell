@@ -1,7 +1,12 @@
 package com.yxm.order.client;
 
+import com.yxm.order.dto.ProductInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 /**
  * @author yxm
@@ -11,4 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface ProductClient {
     @GetMapping("/msg")
     String productMsg();
+
+    @PostMapping("/product/listForOrder")
+    List<ProductInfo> listForOrder(@RequestBody List<String> productIdList);
 }

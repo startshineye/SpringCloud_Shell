@@ -1,5 +1,4 @@
 package com.yxm.product.controller;
-
 import com.yxm.product.entity.ProductCategory;
 import com.yxm.product.entity.ProductInfo;
 import com.yxm.product.service.ProductCategoryService;
@@ -10,9 +9,8 @@ import com.yxm.product.vo.ProductVO;
 import com.yxm.product.vo.ResultVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -66,4 +64,71 @@ public class ProductController {
         }
         return ResultVOUtil.success(productVOList);
     }
+
+    /**
+     * 获取商品列表(给订单服务使用)
+     * @param productIdList
+     * @return
+     */
+    @PostMapping("/listForOrder")
+    public List<ProductInfo> listForOrder(@RequestBody List<String> productIdList){
+        return productService.findList(productIdList);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
