@@ -1,7 +1,5 @@
 package com.yxm.order.enums;
 /**
- * Created by 廖师兄
- * 2017-12-10 16:20
  */
 public enum PayStatusEnum {
     WAIT(0, "等待支付"),
