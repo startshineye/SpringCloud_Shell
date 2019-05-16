@@ -1,4 +1,4 @@
-package com.yxm.order.VO;
+package com.yxm.order.vo;
 
 import lombok.Data;
 

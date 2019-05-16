@@ -1,5 +1,6 @@
 package com.yxm.order.client;
 
+import com.yxm.order.dto.CartDTO;
 import com.yxm.order.dto.ProductInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,4 +20,7 @@ public interface ProductClient {
 
     @PostMapping("/product/listForOrder")
     List<ProductInfo> listForOrder(@RequestBody List<String> productIdList);
+
+    @PostMapping("/product/decreaseStock")
+    void decreaseStock(@RequestBody List<CartDTO> cartDTOList);
 }

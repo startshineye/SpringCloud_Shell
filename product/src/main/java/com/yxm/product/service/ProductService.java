@@ -1,4 +1,5 @@
 package com.yxm.product.service;
+import com.yxm.product.dto.CartDTO;
 import com.yxm.product.entity.ProductInfo;
 import java.util.List;
 /**
@@ -14,4 +15,9 @@ public interface ProductService {
      * 查询商品列表
      */
     List<ProductInfo> findList(List<String> productIdList);
+
+    /**
+     * 减库存     * @param cartDTOList
+     */
+    void decreaseStock(List<CartDTO> cartDTOList);
 }

@@ -1,4 +1,5 @@
 package com.yxm.product.controller;
+import com.yxm.product.dto.CartDTO;
 import com.yxm.product.entity.ProductCategory;
 import com.yxm.product.entity.ProductInfo;
 import com.yxm.product.service.ProductCategoryService;
@@ -74,6 +75,12 @@ public class ProductController {
     public List<ProductInfo> listForOrder(@RequestBody List<String> productIdList){
         return productService.findList(productIdList);
     }
+
+    @PostMapping("/decreaseStock")
+    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
+        productService.decreaseStock(cartDTOList);
+    }
+
 }
 
 
