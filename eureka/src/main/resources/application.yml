@@ -10,4 +10,4 @@ spring:
   application:
     name: eureka
 server:
-  port: 8761
+  port: 8762
