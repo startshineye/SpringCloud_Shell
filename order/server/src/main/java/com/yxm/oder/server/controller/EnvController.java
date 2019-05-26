@@ -3,6 +3,7 @@ package com.yxm.oder.server.controller;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.annotation.RequestScope;
 
 /**
  * @author yxm
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/env")
+@RequestScope
 public class EnvController {
 
     @Value("${env}")
