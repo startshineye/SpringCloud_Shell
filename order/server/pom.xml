@@ -76,6 +76,12 @@
 			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
 		</dependency>
 
+		<!--引入RabbitMQ依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -86,5 +92,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
