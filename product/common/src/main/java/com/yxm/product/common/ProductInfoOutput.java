@@ -92,4 +92,18 @@ public class ProductInfoOutput {
     public void setCategoryType(Integer categoryType) {
         this.categoryType = categoryType;
     }
+
+    @Override
+    public String toString() {
+        return "ProductInfoOutput{" +
+                "productId='" + productId + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productPrice=" + productPrice +
+                ", productStock=" + productStock +
+                ", productDescription='" + productDescription + '\'' +
+                ", productIcon='" + productIcon + '\'' +
+                ", productStatus=" + productStatus +
+                ", categoryType=" + categoryType +
+                '}';
+    }
 }
