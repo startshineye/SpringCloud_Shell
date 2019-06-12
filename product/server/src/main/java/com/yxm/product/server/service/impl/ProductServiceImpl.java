@@ -1,4 +1,5 @@
 package com.yxm.product.server.service.impl;
+import com.rabbitmq.tools.json.JSONUtil;
 import com.yxm.product.common.DecreaseStockInput;
 import com.yxm.product.server.dao.ProductInfoRepository;
 import com.yxm.product.server.entity.ProductInfo;
@@ -6,6 +7,8 @@ import com.yxm.product.server.enums.ProductStatusEnum;
 import com.yxm.product.server.enums.ResultEnum;
 import com.yxm.product.server.exception.ProductException;
 import com.yxm.product.server.service.ProductService;
+import com.yxm.product.server.utils.JsonUtil;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +24,9 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductInfoRepository repository;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @Override
     public List<ProductInfo> findUpAll() {
@@ -54,6 +60,8 @@ public class ProductServiceImpl implements ProductService {
             //保存
             productInfo.setProductStock(result);
             repository.save(productInfo);
+            //发送mq消息
+            amqpTemplate.convertAndSend("productInfo", JsonUtil.toJson(productInfo));
         }
     }
 }

@@ -53,10 +53,16 @@
 			<artifactId>gson</artifactId>
 		</dependency>
 
-		<!--<dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-client</artifactId>
-		</dependency>-->
+		</dependency>
+
+		<!--引入RabbitMQ依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
 
 	</dependencies>
 
