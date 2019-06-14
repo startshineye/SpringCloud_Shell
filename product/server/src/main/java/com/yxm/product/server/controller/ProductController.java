@@ -8,6 +8,7 @@ import com.yxm.product.server.utils.ResultVOUtil;
 import com.yxm.product.server.vo.ProductInfoVO;
 import com.yxm.product.server.vo.ProductVO;
 import com.yxm.product.server.vo.ResultVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +16,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 /**
  * @author yxm
  * @date 2019/4/14 13:00:00
  */
 @RestController
 @RequestMapping("/product")
+@Slf4j
 public class ProductController {
 
     @Autowired
