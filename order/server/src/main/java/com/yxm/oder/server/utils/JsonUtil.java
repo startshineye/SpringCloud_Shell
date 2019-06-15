@@ -1,6 +1,8 @@
 package com.yxm.oder.server.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 
 /**
@@ -38,5 +40,20 @@ public class JsonUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	/**
+	 * json转对象
+	 * @param string
+	 * @param typeReference
+	 * @return
+	 */
+	public static  Object fromJson(String string, TypeReference typeReference){
+     try {
+		 return objectMapper.readValue(string, typeReference);
+	 }catch (Exception e){
+     	e.printStackTrace();
+	 }
+	 return null;
 	}
 }
