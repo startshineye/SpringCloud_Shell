@@ -42,12 +42,15 @@ public class TokenFilter extends ZuulFilter{
 
     @Override
     public Object run() throws ZuulException {
+        //1.获取当前上下文
         RequestContext requestContext = RequestContext.getCurrentContext();
+        //2.从上下文中拿到request
         HttpServletRequest request = requestContext.getRequest();
 
-        //这里从url参数里面获取,也可以从cookie,header里获取
+        //3.这里从url参数里面获取,也可以从cookie,header里获取
         String token = request.getParameter("token");
         if(StringUtils.isEmpty(token)){
+            //4.1 认证失败,返回认证失败时候的信息。
             requestContext.setSendZuulResponse(false);
             requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
         }
