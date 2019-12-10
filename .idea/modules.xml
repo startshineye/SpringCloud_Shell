@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SpringCloud_Shell.iml" filepath="$PROJECT_DIR$/.idea/SpringCloud_Shell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloud_Shell.iml" filepath="$PROJECT_DIR$/SpringCloud_Shell.iml" />
     </modules>
   </component>
 </project>

@@ -12,6 +12,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 
 /**
+ * 权限拦截(区分买家和卖家)
  * @author yxm
  * @date 2019/7/7 21:00:00
  */
