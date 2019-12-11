@@ -51,8 +51,8 @@ public class TokenFilter extends ZuulFilter{
         String token = request.getParameter("token");
         if(StringUtils.isEmpty(token)){
             //4.1 认证失败,返回认证失败时候的信息。
-            requestContext.setSendZuulResponse(false);
-            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
+          /*  requestContext.setSendZuulResponse(false);
+            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());*/
         }
         return null;
     }
