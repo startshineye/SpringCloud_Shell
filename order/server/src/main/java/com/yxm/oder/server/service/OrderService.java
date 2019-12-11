@@ -12,4 +12,10 @@ public interface OrderService {
      * 由于前端传递的参数
      */
     OrderDTO create(OrderDTO orderDTO);
+    /**
+     * 完结订单
+     * @param orderId
+     * @return
+     */
+    OrderDTO finish(String orderId);
 }
