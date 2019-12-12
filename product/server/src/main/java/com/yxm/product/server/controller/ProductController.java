@@ -38,6 +38,10 @@ public class ProductController {
      * 4.构建数据
      */
      @GetMapping("/list")
+     /**
+      * 允许跨域访问
+      */
+     @CrossOrigin(allowCredentials = "true")
     public ResultVO<ProductVO> list(HttpServletRequest request){
         //1.获取所有商品
         List<ProductInfo> productInfoList = productService.findUpAll();
