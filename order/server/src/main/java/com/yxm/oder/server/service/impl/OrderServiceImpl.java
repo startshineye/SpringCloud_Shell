@@ -46,7 +46,9 @@ public class OrderServiceImpl implements OrderService {
         String orderId = KeyUtil.genUniqueKey();
         //1.TODO 查询商品信息(调用商品服务)
         List<String> productIdList = orderDTO.getOrderDetailList().stream().map(OrderDetail::getProductId).collect(Collectors.toList());
+
         List<ProductInfoOutput> productInfoList = productClient.listForOrder(productIdList);
+
         //2.TODO 计算订单总价
         //定义总价
         BigDecimal orderAmout = new BigDecimal(BigInteger.ZERO);
