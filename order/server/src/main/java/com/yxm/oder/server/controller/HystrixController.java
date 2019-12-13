@@ -4,6 +4,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,12 +13,18 @@ import java.util.Arrays;
 @RestController
 @DefaultProperties(defaultFallback = "defaultFallback")
 public class HystrixController {
-
     @HystrixCommand(commandProperties = {
-            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "4000")
+          /*  @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "4000")*/
+            @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"),
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "1000"),
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "30")
     })
     @GetMapping("/getProductInfoList")
-    public String getProductInfoList(){
+    public String getProductInfoList(@RequestParam("number") Integer number){
+        if(number % 2 == 0){
+          return "success";
+        }
         /**
          * 1.我们先使用restTemplate来调用商品列表
          */
