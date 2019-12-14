@@ -10,14 +10,14 @@ import java.util.Arrays;
 @RestController
 @DefaultProperties(defaultFallback = "defaultFallback")
 public class HystrixController {
-  /*  @HystrixCommand(commandProperties = {
-          *//*  @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "4000")*//*
+    @HystrixCommand(commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "1000"),
             @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"),
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "1000"),
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "30")
-    })*/
-    @HystrixCommand
+    })
+   /* @HystrixCommand*/
     @GetMapping("/getProductInfoList")
     public String getProductInfoList(@RequestParam("number") Integer number){
         if(number % 2 == 0){
